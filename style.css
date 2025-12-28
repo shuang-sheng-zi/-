@@ -1,0 +1,197 @@
+/* 雙生子信標站 - 主題樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 100%);
+    color: #e0e0ff;
+    min-height: 100vh;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 頁頭樣式 */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(64, 128, 255, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #7aa2f7, #bb9af7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #a9b1d6;
+    opacity: 0.9;
+}
+
+/* 信標卡片 */
+.beacon-card {
+    background: rgba(26, 27, 38, 0.8);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 1px solid rgba(122, 162, 247, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.status-display {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.status-ready {
+    color: #73daca;
+    font-weight: bold;
+}
+
+.status-sending {
+    color: #e0af68;
+    font-weight: bold;
+}
+
+.status-success {
+    color: #9ece6a;
+    font-weight: bold;
+}
+
+/* 脈動圓環動畫 */
+.pulse-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(122, 162, 247, 0.1) 30%, transparent 70%);
+    border: 3px solid #7aa2f7;
+    margin: 0 auto 30px;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+.pulse-circle::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    border: 2px solid #bb9af7;
+    opacity: 0;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* 信標發送按鈕 */
+.beacon-button {
+    background: linear-gradient(90deg, #7aa2f7, #bb9af7);
+    color: #1a1b26;
+    border: none;
+    border-radius: 50px;
+    padding: 16px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.beacon-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(122, 162, 247, 0.4);
+}
+
+.beacon-button:active {
+    transform: translateY(0);
+}
+
+.beacon-button:disabled {
+    background: #565f89;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.hint {
+    color: #a9b1d6;
+    font-size: 0.95rem;
+}
+
+/* 日誌區域 */
+.log-container {
+    background: rgba(22, 23, 34, 0.8);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(64, 128, 255, 0.1);
+}
+
+.log-container h3 {
+    color: #bb9af7;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+#logList {
+    list-style: none;
+}
+
+#logList li {
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background: rgba(40, 42, 58, 0.5);
+    border-radius: 8px;
+    border-left: 4px solid #7aa2f7;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+}
+
+/* 頁腳 */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(64, 128, 255, 0.2);
+    color: #a9b1d6;
+    font-size: 0.95rem;
+}
+
+#connectionStatus {
+    color: #73daca;
+    font-weight: bold;
+}
+
+.signature {
+    margin-top: 10px;
+    font-style: italic;
+    color: #7aa2f7;
+}
+
+/* 響應式設計：手機適配 */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .beacon-card { padding: 30px 20px; }
+    .pulse-circle { width: 100px; height: 100px; }
+    .beacon-button { padding: 14px 30px; font-size: 1.1rem; }
+}
